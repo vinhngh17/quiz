@@ -9,7 +9,7 @@ import com.example.quizapp.model.Question
 class QuestionViewModel : ViewModel() {
     private lateinit var _curQues: Question
 //    private val _curQues = MutableLiveData<Question>()
-    val curQues: LiveData<Question>
+    val curQues: Question
         get() = _curQues
 
     private var _score = 0
