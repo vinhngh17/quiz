@@ -87,7 +87,7 @@
                 android:id="@+id/rad3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="Question3" />
+                tools:text="Question35" />
 
             <RadioButton
                 android:id="@+id/rad4"
