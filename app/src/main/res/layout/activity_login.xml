@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="160dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/Quizlet_Logo"
+        android:src="@drawable/quiz_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,7 +26,6 @@
         android:drawablePadding="8sp"
         android:drawableTint="@color/blue"
         android:hint="Tên đăng nhập"
-        android:inputType="editTextTextPersonName"
         android:minHeight="48dp"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
