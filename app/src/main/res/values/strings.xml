@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Quizz</string>
+    <string name="app_name">Quizlet</string>
     <string name="exit">Exit</string>
     <string name="restart">Restart</string>
     <string name="title_activity_home">HomeActivity</string>
