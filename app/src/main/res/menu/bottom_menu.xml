@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/home"
-        android:title="Home"
+        android:id="@+id/homeFragment"
+        android:title="Trang chủ"
         android:icon="@drawable/ic_baseline_home_24"/>
 
     <item
-        android:id="@+id/search"
-        android:title="Search"
+        android:id="@+id/searchFragment"
+        android:title="Tìm kiếm"
         android:icon="@drawable/ic_baseline_search_24"
         />
 
@@ -15,12 +15,12 @@
         android:title="" />
 
     <item
-        android:id="@+id/folder_shared"
-        android:title="Folder"
+        android:id="@+id/folderFragment"
+        android:title="Thư viện"
         android:icon="@drawable/ic_baseline_folder_shared_24"/>
 
     <item
-        android:id="@+id/personal"
-        android:title="Personal"
+        android:id="@+id/personalFragment"
+        android:title="Cá nhân"
         android:icon="@drawable/ic_baseline_person_24"/>
 </menu>

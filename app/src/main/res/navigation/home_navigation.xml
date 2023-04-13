@@ -8,14 +8,14 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.quizapp.HomeFragment"
-        android:label="Home"
+        android:label="home"
         tools:layout="@layout/fragment_home" >
     </fragment>
 
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.quizapp.SearchFragment"
-        android:label="Search"
+        android:label="find"
         tools:layout="@layout/fragment_search" >
 
     </fragment>
@@ -23,13 +23,13 @@
     <fragment
         android:id="@+id/folderFragment"
         android:name="com.example.quizapp.FolderFragment"
-        android:label="Folder"
+        android:label="tv"
         tools:layout="@layout/fragment_folder" >
     </fragment>
 
     <fragment
         android:id="@+id/personalFragment"
         android:name="com.example.quizapp.PersonalFragment"
-        android:label="Personal"
+        android:label="Cn"
         tools:layout="@layout/fragment_personal" />
 </navigation>
