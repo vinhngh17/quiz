@@ -1,5 +1,6 @@
 package com.example.quizapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.quizapp.databinding.ActivityStartBinding
@@ -12,11 +13,19 @@ class StartActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.loginBtn.setOnClickListener {
-
+            val intent1 = Intent(this, LoginActivity::class.java)
+            startActivity(intent1)
         }
 
         binding.signupBtn.setOnClickListener {
-
+            val intent2 = Intent(this, SignupActivity::class.java)
+            startActivity(intent2)
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
     }
 }

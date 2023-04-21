@@ -21,7 +21,7 @@
         android:layout_below="@id/Q_icon"
         android:layout_centerHorizontal="true"
         android:text="Chào mừng bạn đến với Quizlet"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/loginBtn"
@@ -31,8 +31,8 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/round_button_white"
         android:text="Hoặc đăng nhập"
-        android:textSize="16sp"
         android:textColor="@color/blue"
+        android:textSize="14sp"
         app:backgroundTint="@null" />
 
     <Button
@@ -44,5 +44,5 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/round_button"
         android:text="Đăng ký miễn phí"
-        android:textSize="16sp" />
+        android:textSize="14sp" />
 </RelativeLayout>
