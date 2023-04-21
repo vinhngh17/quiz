@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.quizapp.databinding.FragmentQuestionBinding
 import com.example.quizapp.viewmodel.QuestionViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -89,7 +90,7 @@ class QuestionFragment : Fragment() {
     }
 
     private fun exitGame() {
-
+        findNavController().navigate(R.id.action_questionFragment_to_mainActivity)
     }
 
 }
