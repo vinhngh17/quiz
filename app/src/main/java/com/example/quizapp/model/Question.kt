@@ -1,8 +1,8 @@
 package com.example.quizapp.model
 
-data class Question(val ques: String,
-                    val ans1: String,
-                    val ans2: String,
-                    val ans3: String,
-                    val ans4: String,
-                    val correctAns: String)
+data class Question(var ques: String,
+                    var op1: String,
+                    var op2: String,
+                    var op3: String,
+                    var op4: String,
+                    var correctAns: String)
