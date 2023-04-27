@@ -15,8 +15,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="40dp"
-            android:text="NEXT"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/round_button"
+            android:text="Tiếp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btn_back" />
@@ -25,9 +27,15 @@
             android:id="@+id/btn_back"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="20dp"
-            android:text="BACK"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/round_button_white"
+            android:text="Quay Lại"
+            android:textColor="@color/blue"
+            app:backgroundTint="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_next"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gr_questions" />
@@ -37,6 +45,8 @@
             android:id="@+id/txt_word_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="1 of 10 questions" />
@@ -45,7 +55,8 @@
             android:id="@+id/txt_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
+            android:layout_marginTop="48dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_word_count"
@@ -55,18 +66,21 @@
             android:id="@+id/txt_instruction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="17sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_question"
-            tools:text="Instruction here!" />
+            tools:text="Chọn ô có câu trả lời đúng nhất" />
 
         <RadioGroup
             android:id="@+id/gr_questions"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:orientation="vertical"
-            android:paddingLeft="20dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_instruction">
@@ -75,24 +89,31 @@
                 android:id="@+id/rad1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#727174"
                 tools:text="Question1" />
 
             <RadioButton
                 android:id="@+id/rad2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#727174"
+                android:layout_marginTop="8dp"
                 tools:text="Question2" />
 
             <RadioButton
                 android:id="@+id/rad3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="Question35" />
+                android:textColor="#727174"
+                android:layout_marginTop="8dp"
+                tools:text="Question3" />
 
             <RadioButton
                 android:id="@+id/rad4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#727174"
+                android:layout_marginTop="8dp"
                 tools:text="Question4" />
         </RadioGroup>
 
