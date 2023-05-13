@@ -7,17 +7,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.quizapp.databinding.FragmentQuestionBinding
 import com.example.quizapp.viewmodel.QuestionViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.firebase.firestore.FirebaseFirestore
 
 class QuestionFragment : Fragment() {
-    private val viewModel: QuestionViewModel by viewModels()
+    private lateinit var viewModel: QuestionViewModel
     private lateinit var binding: FragmentQuestionBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+//        arguments?.let {
+//            title = it.getString("title").toString()
+//            Log.d("TITLE", title)
+//        }
     }
 
     override fun onCreateView(
@@ -31,8 +38,24 @@ class QuestionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnNext.setOnClickListener { onNextQues() }
-        updateQuesOnScreen()
+
+        viewModel = ViewModelProvider(this).get(QuestionViewModel::class.java)
+        viewModel.quizzes.observe(viewLifecycleOwner, Observer { quizzes ->
+            // Use the quizzes data here
+            Log.d("DATA in frag", quizzes.toString())
+        })
+
+        viewModel.listQuestionData.observe(viewLifecycleOwner, Observer { listQuestionData ->
+            // Use the quizzes data here
+            Log.d("DATA in frag", listQuestionData.toString())
+            binding.txtQuestion.text = listQuestionData.get(0).ques
+        })
+
+        viewModel.setUpFireStore("Tieu de lop 1")
+        viewModel.getNextQues()
+        Log.d("DATA out frag", viewModel.quizzes.value.toString())
+//        binding.btnNext.setOnClickListener { onNextQues() }
+//        updateQuesOnScreen()
     }
 
     private fun updateQuesOnScreen(){
@@ -90,7 +113,7 @@ class QuestionFragment : Fragment() {
     }
 
     private fun exitGame() {
-        findNavController().navigate(R.id.action_questionFragment_to_mainActivity)
+//        findNavController().navigate(R.id.action_questionFragment_to_homeFragment)
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.quizapp
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quizapp.adapter.QuizAdapter
 import com.example.quizapp.databinding.FragmentHomeBinding
 import com.example.quizapp.model.Quiz
@@ -37,11 +39,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setData()
         setUpFireStore()
         setUpRecyclerView()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun setUpFireStore() {
         fireStore = FirebaseFirestore.getInstance()
         val collectionReference: CollectionReference = fireStore.collection("quizzes")
@@ -50,24 +52,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 Toast.makeText(requireContext(), "Error fetching data!", Toast.LENGTH_SHORT).show()
                 return@addSnapshotListener
             }
-            Log.d("DATA", value.toObjects(Quiz::class.java).toString())
+//            Log.d("DATA", value.toObjects(Quiz::class.java).toString())
             quizList.clear()
             quizList.addAll(value.toObjects(Quiz::class.java))
             adapter.notifyDataSetChanged()
         }
     }
 
-    private fun setData() {
-        quizList.add(Quiz("25/4/2023","Ten Lop"))
-        quizList.add(Quiz("25/4/2023","Ten Lop"))
-        quizList.add(Quiz("25/4/2023","Ten Lop"))
-        quizList.add(Quiz("25/4/2023","Ten Lop"))
-
-    }
-
     private fun setUpRecyclerView() {
         adapter = QuizAdapter(requireContext(), quizList)
-        binding.hpRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+        binding.hpRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.hpRecyclerView.adapter = adapter
     }
 }

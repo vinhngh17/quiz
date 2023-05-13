@@ -11,8 +11,8 @@
         android:label="home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_mainActivity"
-            app:destination="@id/mainActivity" />
+            android:id="@+id/action_homeFragment_to_questionFragment"
+            app:destination="@id/questionFragment" />
     </fragment>
 
     <fragment
@@ -34,18 +34,12 @@
         android:name="com.example.quizapp.PersonalFragment"
         android:label="Cn"
         tools:layout="@layout/fragment_personal" />
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.example.quizapp.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
     <fragment
         android:id="@+id/questionFragment"
         android:name="com.example.quizapp.QuestionFragment"
         android:label="QuestionFragment" >
-
-        <action
-            android:id="@+id/action_questionFragment_to_mainActivity"
-            app:destination="@id/mainActivity" />
+        <argument
+            android:name="title"
+            app:argType="string" />
     </fragment>
 </navigation>
