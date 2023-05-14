@@ -5,15 +5,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.quizapp.model.Question
-import com.example.quizapp.data.allQuestion
 import com.example.quizapp.model.Quiz
 import com.google.firebase.firestore.FirebaseFirestore
 
 class QuestionViewModel : ViewModel() {
     private val firestore = FirebaseFirestore.getInstance()
-    private lateinit var _curQues: Question
 
-    val curQues: Question
+    private val _curQues = MutableLiveData<Question>()
+    val curQues: LiveData<Question>
         get() = _curQues
 
     private var _score = 0
@@ -30,10 +29,6 @@ class QuestionViewModel : ViewModel() {
     private var quesList: MutableList<Question> = mutableListOf()
     var count = 0
 
-//    init {
-//        setUpFireStore()
-//        getNextQues()
-//    }
 
     private val _quizzes = MutableLiveData<List<Quiz>>()
     val quizzes: MutableLiveData<List<Quiz>>
@@ -52,32 +47,35 @@ class QuestionViewModel : ViewModel() {
                     val dataQuiz = querySnapshot.toObjects(Quiz::class.java)
                     val dataQues = dataQuiz[0].questions
                     val listDataQues = dataQues.values.toMutableList()
+                    listQuestionData.postValue(listDataQues)
                     _quizzes.postValue(dataQuiz)
                     Log.d("Data in vm", listDataQues.toString() )
-                    _listQuestionData.postValue(listDataQues)
                 }
             }
     }
 
     fun getNextQues(){
-        Log.d("DATA out vm", quizzes.value.toString())
-        Log.d("DATA out vm list", listQuestionData.value.toString())
-        if(listQuestionData.value != null) {
-            _curQues = listQuestionData.value!!.get(count)
-            _correctAns = _curQues.correctAns
-            if (quesList.contains(_curQues)) {
+        if(listQuestionData.value!!.isNotEmpty()){
+            _curQues.value = listQuestionData.value!!.get(count)
+            Log.d("DATA curques", _curQues.value.toString())
+            _correctAns = _curQues.value!!.correctAns
+            if (quesList.contains(_curQues.value)) {
                 getNextQues()
                 count++
             } else {
                 curWordCount++
                 count++
-                quesList.add(_curQues)
+                quesList.add(_curQues.value!!)
             }
+            Log.d("count in vm", count.toString())
+            Log.d("quesList in vm", quesList.toString())
         }else return
+        Log.d("correct ans in vm", correctAns)
     }
 
     fun nextQues(): Boolean{
-        return if (curWordCount < allQuestion.size){
+        return if (curWordCount < listQuestionData.value!!.size){
+            Log.d("DATA out vm listquestions", listQuestionData.value.toString())
             getNextQues()
             true
         } else false

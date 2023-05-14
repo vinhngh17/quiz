@@ -40,30 +40,24 @@ class QuestionFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this).get(QuestionViewModel::class.java)
-        viewModel.quizzes.observe(viewLifecycleOwner, Observer { quizzes ->
-            // Use the quizzes data here
-            Log.d("DATA in frag", quizzes.toString())
-        })
-
-        viewModel.listQuestionData.observe(viewLifecycleOwner, Observer { listQuestionData ->
-            // Use the quizzes data here
-            Log.d("DATA in frag", listQuestionData.toString())
-            binding.txtQuestion.text = listQuestionData.get(0).ques
-        })
 
         viewModel.setUpFireStore("Tieu de lop 1")
-        viewModel.getNextQues()
-        Log.d("DATA out frag", viewModel.quizzes.value.toString())
-//        binding.btnNext.setOnClickListener { onNextQues() }
-//        updateQuesOnScreen()
-    }
+        viewModel.listQuestionData.observe(viewLifecycleOwner, Observer { listQuestionData ->
+            // Use the quizzes data here
+            viewModel.getNextQues()
+            Log.d("DATA in frag", listQuestionData.toString())
+        })
 
-    private fun updateQuesOnScreen(){
-        binding.txtQuestion.text = viewModel.curQues.ques
-        binding.rad1.text = viewModel.curQues.op1
-        binding.rad2.text = viewModel.curQues.op2
-        binding.rad3.text = viewModel.curQues.op3
-        binding.rad4.text = viewModel.curQues.op4
+        viewModel.curQues.observe(viewLifecycleOwner, Observer { curQues ->
+            Log.d("curQues frag", curQues.toString())
+            binding.txtQuestion.text = curQues.ques
+            binding.rad1.text = curQues.op1
+            binding.rad2.text = curQues.op2
+            binding.rad3.text = curQues.op3
+            binding.rad4.text = curQues.op4
+        })
+
+        binding.btnNext.setOnClickListener { onNextQues() }
     }
 
     private fun showFinalScoreDialog() {
@@ -88,23 +82,18 @@ class QuestionFragment : Fragment() {
             binding.rad3.isChecked -> userAns = binding.rad3.text.toString()
             binding.rad4.isChecked -> userAns = binding.rad4.text.toString()
         }
-
         Log.d("Fragment", "User ans: $userAns")
-        Log.d("Fragment", "Count: "+ viewModel.count.toString())
 
         if(viewModel.isCorrect(userAns)){
             Log.d("Fragment", "True ans: " + viewModel.correctAns)
-            if(viewModel.nextQues()){
-                updateQuesOnScreen()
+            if(!viewModel.nextQues()){
+                showFinalScoreDialog()
             }
-            else { showFinalScoreDialog() }
 
         } else{
-            Log.d("Fragment", "True ans: " + viewModel.correctAns)
-            if(viewModel.nextQues()){
-                updateQuesOnScreen()
+            if(!viewModel.nextQues()){
+                showFinalScoreDialog()
             }
-            else { showFinalScoreDialog() }
         }
     }
 
