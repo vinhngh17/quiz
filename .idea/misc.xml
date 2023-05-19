@@ -8,7 +8,7 @@
         <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.225" />
         <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/drawable/round_button.xml" value="0.2395" />
         <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/drawable/round_button_white.xml" value="0.2" />
-        <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/layout/activity_home.xml" value="0.17894736842105263" />
+        <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/layout/activity_home.xml" value="0.1897810218978102" />
         <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/layout/activity_main.xml" value="0.23697916666666666" />
         <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/layout/activity_question.xml" value="0.18659420289855072" />
@@ -19,7 +19,7 @@
         <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/layout/fragment_home.xml" value="0.16" />
         <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/layout/fragment_personal.xml" value="0.2520833333333333" />
         <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/layout/fragment_question.xml" value="0.17894736842105263" />
-        <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/layout/fragment_search.xml" value="0.2520833333333333" />
+        <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/layout/fragment_search.xml" value="0.1" />
         <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/layout/layout.xml" value="0.2520833333333333" />
         <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/layout/list_img_item.xml" value="0.24320652173913043" />
         <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/layout/list_item.xml" value="0.23697916666666666" />

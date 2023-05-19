@@ -14,11 +14,16 @@ import com.example.quizapp.MainActivity
 import com.example.quizapp.R
 import com.example.quizapp.model.Quiz
 
-class QuizAdapter(val context: Context, val quizzes: List<Quiz>):
+class QuizAdapter(val context: Context, var quizzes: List<Quiz>):
     RecyclerView.Adapter<QuizAdapter.QuizViewHolder>() {
     inner class QuizViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         var imgquiz: ImageView = itemView.findViewById(R.id.imgQuiz)
         var titleQuiz: TextView = itemView.findViewById(R.id.titleQuiz)
+    }
+
+    fun setFilterList(quizzes: List<Quiz>){
+        this.quizzes = quizzes
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuizViewHolder {

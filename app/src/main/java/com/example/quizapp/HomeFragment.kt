@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.quizapp.adapter.QuizAdapter
 import com.example.quizapp.databinding.FragmentHomeBinding
 import com.example.quizapp.model.Quiz
@@ -61,7 +62,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun setUpRecyclerView() {
         adapter = QuizAdapter(requireContext(), quizList)
-        binding.hpRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.hpRecyclerView.setHasFixedSize(true)
+        binding.hpRecyclerView.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
         binding.hpRecyclerView.adapter = adapter
     }
 }

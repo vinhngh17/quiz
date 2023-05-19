@@ -4,5 +4,6 @@
     <string name="restart">Restart</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_quiz">Add Quiz</string>
 
 </resources>

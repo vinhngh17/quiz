@@ -17,14 +17,15 @@ import com.google.firebase.firestore.FirebaseFirestore
 class QuestionFragment : Fragment() {
     private lateinit var viewModel: QuestionViewModel
     private lateinit var binding: FragmentQuestionBinding
+    private lateinit var title: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//        arguments?.let {
-//            title = it.getString("title").toString()
-//            Log.d("TITLE", title)
-//        }
+        arguments?.let {
+            title = it.getString("title").toString()
+            Log.d("TITLE", title)
+        }
     }
 
     override fun onCreateView(
@@ -41,7 +42,7 @@ class QuestionFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(QuestionViewModel::class.java)
 
-        viewModel.setUpFireStore("Tieu de lop 1")
+        viewModel.setUpFireStore(title)
         viewModel.listQuestionData.observe(viewLifecycleOwner, Observer { listQuestionData ->
             // Use the quizzes data here
             viewModel.getNextQues()
