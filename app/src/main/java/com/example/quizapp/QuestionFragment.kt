@@ -6,18 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.quizapp.databinding.FragmentQuestionBinding
 import com.example.quizapp.viewmodel.QuestionViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class QuestionFragment : Fragment() {
     private lateinit var viewModel: QuestionViewModel
     private lateinit var binding: FragmentQuestionBinding
     private lateinit var title: String
+    val auth = FirebaseAuth.getInstance()
+    val currentUser = auth.currentUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,11 +92,13 @@ class QuestionFragment : Fragment() {
             Log.d("Fragment", "True ans: " + viewModel.correctAns)
             if(!viewModel.nextQues()){
                 showFinalScoreDialog()
+                addScoreToFireStore(viewModel.score)
             }
 
         } else{
             if(!viewModel.nextQues()){
                 showFinalScoreDialog()
+                addScoreToFireStore(viewModel.score)
             }
         }
     }
@@ -105,5 +110,21 @@ class QuestionFragment : Fragment() {
     private fun exitGame() {
 //        findNavController().navigate(R.id.action_questionFragment_to_homeFragment)
     }
+
+
+    fun addScoreToFireStore(score: Int) {
+        val db = Firebase.firestore
+        val collectionRef = db.collection("users").document(currentUser!!.uid)
+        val titleQuiz = title
+
+        collectionRef.update("quizNames.$titleQuiz", score)
+            .addOnSuccessListener {
+                Log.d("TAG", "DocumentSnapshot successfully updated!")
+            }
+            .addOnFailureListener { e ->
+                Log.w("TAG", "Error updating document", e)
+            }
+    }
+
 
 }
