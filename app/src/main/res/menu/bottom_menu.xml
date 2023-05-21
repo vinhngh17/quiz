@@ -16,7 +16,7 @@
 
     <item
         android:id="@+id/folderFragment"
-        android:title="Học phần"
+        android:title="Thư mục"
         android:icon="@drawable/ic_baseline_folder_shared_24"/>
 
     <item

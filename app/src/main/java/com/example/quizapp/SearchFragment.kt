@@ -51,7 +51,8 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                     }
 
                     if(filterList.isEmpty()){
-                        Toast.makeText(context, "Không có dữ liệu", Toast.LENGTH_SHORT).show()
+//                        Toast.makeText(context, "Không có dữ liệu", Toast.LENGTH_SHORT).show()
+                        adapter.setFilterList(filterList)
                     } else{
                         adapter.setFilterList(filterList)
                     }

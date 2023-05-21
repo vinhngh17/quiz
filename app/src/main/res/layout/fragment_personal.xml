@@ -1,14 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
     tools:context=".PersonalFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:id="@+id/profile_header_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="32dp">
 
-</FrameLayout>
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/circle"
+            android:src="@drawable/googleg_standard_color_18"
+            android:contentDescription="TODO" />
+             />
+
+        <TextView
+            android:id="@+id/txtEmail"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            tools:text="vinh02@gmail.com"
+             />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:paddingLeft="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center_vertical"
+        android:text="Cá nhân"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:drawablePadding="16dp"
+        android:drawableStart="@drawable/ic_baseline_person_outline_24"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/settings" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:text="Cài đặt"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textView10"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:drawableStart="@drawable/ic_baseline_notifications_none_24"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="8dp"
+        android:text="Thông báo"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:paddingLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:drawableStart="@drawable/ic_baseline_help_outline_24"
+        android:gravity="center_vertical"
+        android:text="FAQ"
+        android:drawablePadding="16dp"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center_vertical"
+        android:textColor="@color/black"
+        android:text="Về ứng dụng"
+        android:paddingLeft="8dp"
+        android:drawablePadding="16dp"
+        android:drawableStart="@drawable/ic_baseline_error_outline_24"/>
+
+    <TextView
+        android:id="@+id/txtLogin"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="100dp"
+        android:gravity="center_vertical"
+        android:textColor="@color/black"
+        android:text="Đăng xuất"
+        android:paddingLeft="8dp"
+        android:drawablePadding="16dp"
+        android:drawableStart="@drawable/ic_baseline_logout_24"/>
+
+
+</LinearLayout>

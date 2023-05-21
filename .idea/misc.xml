@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/drawable/circle.xml" value="0.2185" />
         <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/drawable/edt_text_background.xml" value="0.2155" />
+        <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/drawable/ic_baseline_folder_copy_24.xml" value="0.2185" />
         <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.21" />
         <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.225" />
         <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/drawable/round_button.xml" value="0.2395" />
@@ -15,6 +17,7 @@
         <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/layout/activity_signup.xml" value="0.2" />
         <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/layout/activity_splash.xml" value="0.2" />
         <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/layout/activity_start.xml" value="0.2" />
+        <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/layout/fab_item.xml" value="0.25104166666666666" />
         <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/layout/fragment_folder.xml" value="0.2520833333333333" />
         <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/layout/fragment_home.xml" value="0.16" />
         <entry key="..\:/AndroidKotlin/QuizApp/app/src/main/res/layout/fragment_personal.xml" value="0.2520833333333333" />
