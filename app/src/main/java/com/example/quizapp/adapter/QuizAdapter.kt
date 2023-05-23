@@ -19,6 +19,7 @@ class QuizAdapter(val context: Context, var quizzes: List<Quiz>):
     inner class QuizViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         var imgquiz: ImageView = itemView.findViewById(R.id.imgQuiz)
         var titleQuiz: TextView = itemView.findViewById(R.id.titleQuiz)
+        var numQuiz: TextView = itemView.findViewById(R.id.numQuiz)
     }
 
     fun setFilterList(quizzes: List<Quiz>){
@@ -33,6 +34,7 @@ class QuizAdapter(val context: Context, var quizzes: List<Quiz>):
 
     override fun onBindViewHolder(holder: QuizViewHolder, position: Int) {
         holder.titleQuiz.text = quizzes[position].title
+        holder.numQuiz.text = quizzes[position].questions.size.toString() + " câu"
         holder.itemView.setOnClickListener{
             val action = HomeFragmentDirections.actionHomeFragmentToQuestionFragment(
                 title = quizzes[position].title)

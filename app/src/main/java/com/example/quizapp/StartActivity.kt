@@ -23,9 +23,5 @@ class StartActivity : AppCompatActivity() {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        val intent = Intent(this, HomeActivity::class.java)
-        startActivity(intent)
-    }
+   
 }

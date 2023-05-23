@@ -14,7 +14,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 class SignupActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignupBinding
     private lateinit var firebaseAuth: FirebaseAuth
-    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,10 +39,8 @@ class SignupActivity : AppCompatActivity() {
                             val firebaseUser = firebaseAuth.currentUser
                             val firebaseEmail = firebaseUser?.email.toString()
                             if (firebaseUser != null) {
-
                                 // Tạo đối tượng User
                                 val user = User(firebaseUser.uid, firebaseUser.email!!, firebaseEmail.substringBefore("@"))
-
                                 // Lưu dữ liệu người dùng vào Firestore
                                 saveUserToFirestore(user)
                             }

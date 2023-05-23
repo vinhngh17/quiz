@@ -19,7 +19,7 @@ class QuestionViewModel : ViewModel() {
     val score: Int
         get() = _score
 
-    var _allScore: ArrayList<Int> = arrayListOf()
+    var _allScore: ArrayList<String> = arrayListOf()
 
     private var curWordCount = 0
 
@@ -86,11 +86,11 @@ class QuestionViewModel : ViewModel() {
     fun isCorrect(curUserAns: String): Boolean{
         if(curUserAns.equals(_correctAns)){
             _score++
-            _allScore.add(1)
+            _allScore.add("Đúng")
             return true
         }
         else {
-            _allScore.add(0)
+            _allScore.add("Sai")
             return false
         }
     }

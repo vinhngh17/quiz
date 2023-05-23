@@ -21,9 +21,9 @@
             android:layout_height="80dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/circle"
-            android:src="@drawable/googleg_standard_color_18"
+            android:src="@drawable/img_avatar"
             android:contentDescription="TODO" />
-             />
+
 
         <TextView
             android:id="@+id/txtEmail"
@@ -120,7 +120,7 @@
         android:drawableStart="@drawable/ic_baseline_error_outline_24"/>
 
     <TextView
-        android:id="@+id/txtLogin"
+        android:id="@+id/txtLogout"
         android:textSize="16sp"
         android:layout_width="match_parent"
         android:layout_height="48dp"

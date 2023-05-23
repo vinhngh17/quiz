@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.quizapp.adapter.QuizAdapter
 import com.example.quizapp.databinding.FragmentHomeBinding
 import com.example.quizapp.model.Quiz
+import com.google.android.material.bottomappbar.BottomAppBar
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -42,6 +44,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
         setUpFireStore()
         setUpRecyclerView()
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        val bottomAppBar = activity?.findViewById<BottomAppBar>(R.id.bottomAppBar)
+        val fab = activity?.findViewById<FloatingActionButton>(R.id.fab)
+        bottomAppBar?.visibility = View.VISIBLE
+        fab?.visibility = View.VISIBLE
     }
 
     @SuppressLint("NotifyDataSetChanged")

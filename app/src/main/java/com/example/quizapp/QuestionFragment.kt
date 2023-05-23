@@ -8,9 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.quizapp.databinding.FragmentQuestionBinding
+import com.example.quizapp.model.ScoreList
 import com.example.quizapp.viewmodel.QuestionViewModel
+import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -42,7 +46,6 @@ class QuestionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         viewModel = ViewModelProvider(this).get(QuestionViewModel::class.java)
 
         viewModel.setUpFireStore(title)
@@ -59,9 +62,18 @@ class QuestionFragment : Fragment() {
             binding.rad2.text = curQues.op2
             binding.rad3.text = curQues.op3
             binding.rad4.text = curQues.op4
+            binding.txtWordCount.text = getString(R.string.txt_word_count, viewModel.count + 1, viewModel.listQuestionData.value!!.size)
         })
 
         binding.btnNext.setOnClickListener { onNextQues() }
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        val bottomAppBar = activity?.findViewById<BottomAppBar>(R.id.bottomAppBar)
+        val fab = activity?.findViewById<FloatingActionButton>(R.id.fab)
+        bottomAppBar?.visibility = View.GONE
+        fab?.visibility = View.GONE
     }
 
     private fun showFinalScoreDialog() {
@@ -69,11 +81,8 @@ class QuestionFragment : Fragment() {
             .setTitle("Congratulation!")
             .setMessage("You scored " + viewModel.score)
             .setCancelable(false)
-            .setNegativeButton(getString(R.string.exit)) { _, _ ->
-                exitGame()
-            }
-            .setPositiveButton(getString(R.string.restart)) { _, _ ->
-                restartGame()
+            .setNegativeButton("Tiếp theo") { _, _ ->
+                next()
             }
             .show()
     }
@@ -103,12 +112,13 @@ class QuestionFragment : Fragment() {
         }
     }
 
-    private fun restartGame() {
-        TODO("Not yet implemented")
-    }
 
-    private fun exitGame() {
-//        findNavController().navigate(R.id.action_questionFragment_to_homeFragment)
+    private fun next() {
+        val listScore = ScoreList(viewModel._allScore)
+        val action = QuestionFragmentDirections.actionQuestionFragmentToResultFragment(
+            listScore = listScore, score = viewModel.score
+        )
+        findNavController().navigate(action)
     }
 
 
